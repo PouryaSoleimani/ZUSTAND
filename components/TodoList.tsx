@@ -1,5 +1,5 @@
 "use client"
-import { Delete, DeleteIcon, LucideDelete } from 'lucide-react'
+import { DeleteIcon } from 'lucide-react'
 import useTodoStore, { TodoStoreType, TodoType } from '../store/todoStore'
 
 function TodoList() {
