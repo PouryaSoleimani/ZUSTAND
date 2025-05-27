@@ -17,7 +17,9 @@ function TodoList() {
                     >
                         {todo.text}
                     </span>
-                    <button onClick={() => removeTodo(todo.id)}><DeleteIcon className='text-red-500 translate-y-1' /></button>
+                    <button onClick={() => removeTodo(todo.id)}>
+                        <DeleteIcon className='text-red-500 translate-y-1' />
+                    </button>
                 </li>
             ))}
         </ul>
