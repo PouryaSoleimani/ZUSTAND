@@ -7,6 +7,7 @@ export type CounterStateType = {
     decrease: () => void,
     reset: () => void
     random: () => void
+    plusFifty: () => void
 }
 
 // COUNTER STORE
@@ -15,7 +16,8 @@ const useCounterStore = create<CounterStateType>((set) => ({
     increase: () => set((state: CounterStateType) => ({ count: state.count + 1 })),
     decrease: () => set((state: CounterStateType) => ({ count: state.count - 1 })),
     reset: () => set({ count: 0 }),
-    random: () => set({ count: Number((Math.random() * 100).toFixed()) })
+    random: () => set({ count: Number((Math.random() * 100).toFixed()) }),
+    plusFifty: () => set((state: CounterStateType) => ({ count: state.count + 50 }))
 }))
 
 export default useCounterStore
