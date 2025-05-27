@@ -15,7 +15,7 @@ const TodoForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='bg-zinc-800 p-3 rounded'>
+        <form onSubmit={handleSubmit} className='bg-zinc-800 p-3 rounded border-b-2 border-white'>
             <input
                 value={text}
                 onChange={(e) => setText(e.target.value)}
