@@ -1,5 +1,6 @@
 import { create } from "zustand";
 
+// TYPE
 export type CounterStateType = {
     count: number,
     increase: () => void,
@@ -7,7 +8,7 @@ export type CounterStateType = {
     reset: () => void
 }
 
-
+// COUNTER STORE
 const useCounterStore = create<CounterStateType>((set) => ({
     count: 0,
     increase: () => set((state: CounterStateType) => ({ count: state.count + 1 })),
