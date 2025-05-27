@@ -18,7 +18,7 @@ const useTodoStore = create((set) => ({
     todos: [],
 
     addTodo: (text: string) => set((state: TodoStoreType) => ({
-        todos: [...state.todos, { id: crypto.randomUUID, text, done: false }]
+        todos: [...state.todos, { id: crypto.randomUUID(), text, done: false }]
     })),
 
     toggleTodo: (id: number) => set((state: TodoStoreType) => ({
