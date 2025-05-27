@@ -1,5 +1,5 @@
 "use client"
-import { Delete } from 'lucide-react'
+import { Delete, DeleteIcon, LucideDelete } from 'lucide-react'
 import useTodoStore, { TodoStoreType, TodoType } from '../store/todoStore'
 
 function TodoList() {
@@ -17,7 +17,7 @@ function TodoList() {
                     >
                         {todo.text}
                     </span>
-                    <button onClick={() => removeTodo(todo.id)}><Delete className='text-red-500 translate-y-1' /></button>
+                    <button onClick={() => removeTodo(todo.id)}><DeleteIcon className='text-red-500 translate-y-1' /></button>
                 </li>
             ))}
         </ul>
