@@ -1,11 +1,12 @@
 import { create } from "zustand";
 
-//? TYPES
+// TYPES
 export type TodoType = {
     id: number,
     text: string,
     isDone: boolean
 }
+
 export type TodoStoreType = {
     todos: TodoType[],
     addTodo: (text: string) => void,
