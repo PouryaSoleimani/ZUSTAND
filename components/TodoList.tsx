@@ -1,5 +1,5 @@
 "use client"
-import { DeleteIcon } from 'lucide-react'
+import { Trash } from 'lucide-react'
 import useTodoStore, { TodoStoreType, TodoType } from '../store/todoStore'
 
 function TodoList() {
@@ -12,13 +12,13 @@ function TodoList() {
             {todos.map((todo: TodoType) => (
                 <li key={todo.id} className='bg-black p-2 rounded space-x-5 my-2 text-xl'>
                     <span
-                        style={{ textDecoration: todo.isDone ? 'line-through' : 'none', cursor: 'pointer', }}
+                        style={{ textDecoration: todo.isDone ? 'line-through' : 'none', cursor: 'pointer', opacity: todo.isDone ? "0.3" : "1" }}
                         onClick={() => toggleTodo(todo.id)}
                     >
                         {todo.text}
                     </span>
                     <button onClick={() => removeTodo(todo.id)}>
-                        <DeleteIcon className='text-red-500 translate-y-1' />
+                        <Trash className='text-red-500 translate-y-0.5 size-4 hover:rotate-12 duration-200' />
                     </button>
                 </li>
             ))}
