@@ -14,6 +14,7 @@ export type TodoStoreType = {
     removeTodo: (id: number) => void
 }
 
+// USE TODO STORE
 const useTodoStore = create((set) => ({
     todos: [],
 
