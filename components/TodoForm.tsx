@@ -26,9 +26,9 @@ const TodoForm = () => {
                 className='border p-2 rounded mx-1 box-border bg-black'
             />
             <button type="submit" className='px-6 py-2 rounded bg-green-800'>ADD</button>
-            <button className='bg-black p-2 rounded mx-4 bg-gradient-to-br from-indigo-900 via-sky-950 to-pink-950 border-2 border-black' onClick={() => addTodo([...FakeTodos])}>ADD FAKE TODOS</button>
-            <button className='bg-black p-2 rounded mx-4 bg-gradient-to-br from-green-900 via-emerald-950 to-lime-950 border-2 border-black' onClick={() => addTodo([...FakeTodos2])}>ADD FAKE TODOS 2</button>
-            <button className='p-2 rounded mx-4 bg-red-950 inline-flex items-center translate-y-2 gap-2' onClick={() => addTodo([])}><Trash />CLEAR TODOS</button>
+            <button className='bg-black p-2 rounded mx-1 bg-gradient-to-br from-indigo-900 via-sky-950 to-pink-950 border-2 border-black' onClick={() => addTodo([...FakeTodos])}>ADD FAKE TODOS</button>
+            <button className='bg-black p-2 rounded mx-1 bg-gradient-to-br from-green-900 via-emerald-950 to-lime-950 border-2 border-black' onClick={() => addTodo([...FakeTodos2])}>ADD FAKE TODOS 2</button>
+            <button className='p-2 border-2 border-black rounded mx-1  bg-red-950 inline-flex items-center translate-y-1.5 gap-2' onClick={() => addTodo([])}><Trash />CLEAR TODOS</button>
         </form>
     )
 }
