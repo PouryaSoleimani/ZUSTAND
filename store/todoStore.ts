@@ -11,6 +11,10 @@ export interface AddTodoFn {
     (array: { id: number | string, title: string }[]): void;
 }
 
+export interface AddSingleFn {
+    (text: string): void;
+}
+
 export interface ToggleTodoFn {
     (id: number): void;
 }
@@ -22,6 +26,7 @@ export interface RemoveTodoFn {
 export interface TodoStoreType {
     todos: TodoType[];
     addTodo: AddTodoFn;
+    addSingleTodo: AddSingleFn
     toggleTodo: ToggleTodoFn;
     removeTodo: RemoveTodoFn;
 }
@@ -32,6 +37,10 @@ const useTodoStore = create((set) => ({
 
     addTodo: (array: { id: number, title: string }[]) => set(() => ({
         todos: [...array]
+    })),
+
+    addSingleTodo: (text: string) => set((state: TodoStoreType) => ({
+        todos: [...state.todos, { id: Date.now(), title: text }],
     })),
 
     toggleTodo: (id: number) => set((state: TodoStoreType) => ({

@@ -10,7 +10,7 @@ import useSWR from 'swr'
 
 const TodoForm = () => {
     const [text, setText] = useState('')
-    const { addTodo } = useTodoStore() as TodoStoreType
+    const { addTodo, addSingleTodo } = useTodoStore() as TodoStoreType
     const fetcher = (url: string) => fetch(url).then(res => res.json())
 
     const { data } = useSWR('https://fakestoreapi.com/products', fetcher)
@@ -19,7 +19,7 @@ const TodoForm = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if (!text.trim()) return
-        addTodo([{ id: crypto.randomUUID().toString(), title: "HELLO" }])
+        addSingleTodo(text)
         setText('')
     }
 
