@@ -3,23 +3,35 @@ import { create } from "zustand";
 // TYPES
 export type TodoType = {
     id: number,
-    text: string,
-    isDone: boolean
+    title: string,
+    isDone?: boolean
 }
 
-export type TodoStoreType = {
-    todos: TodoType[],
-    addTodo: (text: string) => void,
-    toggleTodo: (id: number) => void,
-    removeTodo: (id: number) => void
+export interface AddTodoFn {
+    (array: { id: number | string, title: string }[]): void;
+}
+
+export interface ToggleTodoFn {
+    (id: number): void;
+}
+
+export interface RemoveTodoFn {
+    (id: number): void;
+}
+
+export interface TodoStoreType {
+    todos: TodoType[];
+    addTodo: AddTodoFn;
+    toggleTodo: ToggleTodoFn;
+    removeTodo: RemoveTodoFn;
 }
 
 // USE TODO STORE
 const useTodoStore = create((set) => ({
     todos: [],
 
-    addTodo: (text: string) => set((state: TodoStoreType) => ({
-        todos: [...state.todos, { id: crypto.randomUUID(), text, done: false }]
+    addTodo: (array: { id: number, title: string }[]) => set(() => ({
+        todos: [...array]
     })),
 
     toggleTodo: (id: number) => set((state: TodoStoreType) => ({
