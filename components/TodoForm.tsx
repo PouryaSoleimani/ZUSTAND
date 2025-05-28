@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import useTodoStore from '@/store/todoStore'
 import React, { useState } from 'react'
