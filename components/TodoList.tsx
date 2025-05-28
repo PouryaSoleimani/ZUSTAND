@@ -18,7 +18,7 @@ function TodoList() {
                         style={{ textDecoration: todo.isDone ? 'line-through' : 'none', cursor: 'pointer', opacity: todo.isDone ? "0.3" : "1" }}
                         onClick={() => toggleTodo(todo.id)}
                     >
-                        {todo.title}
+                        {todo.title.slice(0, 25)}
                     </span>
                     <button onClick={() => removeTodo(todo.id)}>
                         <Trash className='text-red-500 translate-y-0.5 size-4 hover:rotate-12 duration-200' />

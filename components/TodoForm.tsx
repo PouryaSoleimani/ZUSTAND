@@ -14,7 +14,7 @@ const TodoForm = () => {
     const { addTodo } = useTodoStore() as TodoStoreType
     const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-    const { data, error, isLoading } = useSWR('https://fakestoreapi.com/products', fetcher)
+    const { data } = useSWR('https://fakestoreapi.com/products', fetcher)
 
 
     const handleSubmit = (e: React.FormEvent) => {
