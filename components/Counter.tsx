@@ -1,6 +1,6 @@
 "use client"
-import useCounterStore from '@/store/counterStore'
 import React from 'react'
+import useCounterStore from '@/store/counterStore'
 import { CounterStateType } from '@/store/counterStore'
 
 const Counter = () => {
