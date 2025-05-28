@@ -13,7 +13,7 @@ function TodoList() {
             <h2 className='font-black tracking-wide text-green-600'>TODO LIST :</h2>
 
             {todos.map((todo: TodoType) => (
-                <li key={todo.id} className='bg-black p-2 rounded space-x-5 my-2 text-xl'>
+                <li key={todo.id} className='bg-black p-2 rounded space-x-5 my-2 text-xl flex items-center justify-between w-1/3 font-black border border-zinc-500'>
                     <span
                         style={{ textDecoration: todo.isDone ? 'line-through' : 'none', cursor: 'pointer', opacity: todo.isDone ? "0.3" : "1" }}
                         onClick={() => toggleTodo(todo.id)}
