@@ -1,19 +1,19 @@
 import { create } from "zustand";
 
 // TYPES
-export interface SingleProductType {
+export type SingleProductType = {
   id: number | string;
   title: string;
-}
+};
 
-export interface ProductsStoreType {
+export type ProductsStoreType = {
   products: SingleProductType[];
   addProducts: (products: SingleProductType[]) => void;
   deleteProducts: (ID: number | string) => void;
-}
+};
 
 // STATE
-const useProductsStore = create((set) => ({
+const useProductsStore = create<ProductsStoreType>((set) => ({
   products: [],
   addProducts: (products: SingleProductType[]) =>
     set((state: ProductsStoreType) => ({
