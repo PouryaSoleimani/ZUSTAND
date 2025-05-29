@@ -8,7 +8,7 @@ const TicTacToePage = () => {
     return (
         <div>
             <h1>TicTacToePage</h1>
-            <Square value={0} onSquareClick={onSquareClick} />
+            <Square value={'X'} onSquareClick={onSquareClick} />
         </div>
     )
 }

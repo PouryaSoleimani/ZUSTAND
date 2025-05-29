@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 interface SquarePropsType {
-    value: number | string,
+    value: "X" | "O" | null | number,
     onSquareClick: () => void
 }
 const Square: React.FC<SquarePropsType> = ({ value, onSquareClick }) => {
