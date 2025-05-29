@@ -22,14 +22,14 @@ const ProductsShowPage = () => {
     const products = useProductsStore((state: ProductsStoreType) => state.products)
 
     return (
-        <div className='flex flex-col gap-3 w-[90%] mx-auto my-32 p-10'>
+        <div className='flex container flex-col gap-3 my-32 p-10'>
             <h2 className='card-title'>ProductsShowPage</h2>
             <button onClick={() => addProducts([{ id: crypto.randomUUID().slice(0, 4), title: generateRandomString(5) }])} className='btn w-fit mx-auto'>Add Product</button>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 place-items-center gap-5'>
                 {products?.map((product: SingleProductType) => (
                     <div key={Math.random()} className='card card-border gap-3 bg-zinc-900 p-3 flex px-6 items-center justify-center'>
                         <p className='font-bold'>{product.title.toUpperCase()}</p>
-                        <button onClick={() => { deleteProducts(product.id); console.log("DELETE", product.id); toaster(product.id) }} className='btn btn-error w-fit flex text-sm text-neutral-800 gap-2 whitespace-nowrap tracking-tighter'><Trash className='w-4 h-4' /> Delete </button>
+                        <button onClick={() => { deleteProducts(product.id); console.log("DELETE", product.id); toaster(product.id) }} className='btn btn-error w-fit flex text-sm text-neutral-100 gap-2 whitespace-nowrap tracking-tighter rounded-lg'><Trash className='w-4 h-4' /> Delete </button>
                     </div>
                 ))}
             </div>
