@@ -5,20 +5,28 @@ import { SingleProductType, ProductsStoreType } from '@/store/productsStore'
 
 const ProductsShowPage = () => {
 
+    function generateRandomString(length: number) {
+        return Math.random().toString(36).substring(2, length + 2);
+    }
+
+
     const { products, addProducts, deleteProducts } = useProductsStore() as ProductsStoreType
+
+
     return (
         <div className='flex flex-col gap-3 w-[90%] mx-auto my-32 p-10'>
             <h2 className='card-title'>ProductsShowPage</h2>
-            <button onClick={() => addProducts([{ id: 1, title: 'Product 1' }])} className='btn w-fit mx-auto'>Add Product</button>
+            <button onClick={() => addProducts([{ id: crypto.randomUUID().slice(0, 4), title: generateRandomString(5) }])} className='btn w-fit mx-auto'>Add Product</button>
+            <div className='grid grid-flow-row grid-cols-8 place-items-center gap-3'>
+                {products?.map((product: SingleProductType) => (
+                    <div key={Math.random()} className='card border w-fit gap-3 bg-zinc-950 p-3 flex items-center justify-center'>
+                        <p className='font-bold'>{product.title.toUpperCase()}</p>
+                        <button onClick={() => { deleteProducts(product.id); console.log("DELETE", product.id) }} className='btn btn-error w-fit'>Delete Products</button>
+                    </div>
+                ))}
+            </div>
 
-            {products?.map((product: SingleProductType) => (
-                <div key={product.id} className='card border w-fit p-3 flex items-center justify-center'>
-                    <p>{product.title}</p>
-                    <button onClick={() => deleteProducts()} className='btn btn-error w-fit'>Delete Products</button>
-                </div>
-            ))}
-
-        </div>
+        </div >
     )
 }
 
