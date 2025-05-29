@@ -30,4 +30,4 @@ const DataShowPage = () => {
     )
 }
 
-export default DataShowPage
+export default DataShowPage 
