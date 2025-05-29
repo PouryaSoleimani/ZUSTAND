@@ -1,9 +1,10 @@
 "use client"
 import useProductsStore from '@/store/productsStore'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { SingleProductType, ProductsStoreType } from '@/store/productsStore'
 import { toast } from 'react-hot-toast'
 import { Trash } from 'lucide-react'
+
 
 const ProductsShowPage = () => {
 
@@ -22,15 +23,19 @@ const ProductsShowPage = () => {
     const products = useProductsStore((state: ProductsStoreType) => state.products)
 
     return (
-        <div className='flex container flex-col gap-3 my-32 p-10'>
-            <h2 className='card-title'>ProductsShowPage</h2>
-            <button onClick={() => addProducts([{ id: crypto.randomUUID().slice(0, 4), title: generateRandomString(5) }])} className='btn w-fit mx-auto'>Add Product</button>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 place-items-center gap-5'>
+        <div className='flex w-screen h-screen flex-col gap-3 bg-black p-10'>
+            <h2 className='text-center font-black bg-blue-950 w-fit mx-auto p-3 rounded-lg my-4'>ProductsShowPage</h2>
+            <button onClick={() => addProducts([{ id: crypto.randomUUID().slice(0, 4), title: generateRandomString(5) }])} className='btn w-fit mx-auto btn-success rounded-lg my-3'>Add Product</button>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 place-items-center gap-5 border p-4 border-zinc-800 rounded-lg'>
                 {products?.map((product: SingleProductType) => (
-                    <div key={Math.random()} className='card card-border gap-3 bg-zinc-900 p-3 flex px-6 items-center justify-center'>
-                        <p className='font-bold'>{product.title.toUpperCase()}</p>
-                        <button onClick={() => { deleteProducts(product.id); console.log("DELETE", product.id); toaster(product.id) }} className='btn btn-error w-fit flex text-sm text-neutral-100 gap-2 whitespace-nowrap tracking-tighter rounded-lg'><Trash className='w-4 h-4' /> Delete </button>
-                    </div>
+                    <>
+                        <Suspense fallback={<p className='text-3xl font-black text-white'>LOADING</p>}>
+                            <div key={product.id} className='card card-border gap-3 bg-zinc-900 py-3 px-10  flex items-center justify-center rounded-lg'>
+                                <p className='font-bold'>{product.title.toUpperCase()}</p>
+                                <button onClick={() => { deleteProducts(product.id); console.log("DELETE", product.id); toaster(product.id) }} className='btn btn-error btn-circle size-12 text-sm text-neutral-100  tracking-tighter rounded-full group'><Trash className='w-6 h-9 group-hover:rotate-12' /></button>
+                            </div>
+                        </Suspense>
+                    </>
                 ))}
             </div>
 
