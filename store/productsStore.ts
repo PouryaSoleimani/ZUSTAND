@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 // TYPES
 export type SingleProductType = {
@@ -13,18 +14,27 @@ export type ProductsStoreType = {
 };
 
 // STATE
-const useProductsStore = create<ProductsStoreType>((set) => ({
-  products: [],
-  addProducts: (products: SingleProductType[]) =>
-    set((state: ProductsStoreType) => ({
-      products: [...state.products, ...products],
-    })),
-  deleteProducts: (ID: number | string) =>
-    set((state: ProductsStoreType) => ({
-      products: state.products.filter(
-        (item: SingleProductType) => item.id !== ID
-      ),
-    })),
-}));
+const useProductsStore = create(
+  persist<ProductsStoreType>(
+    (set) => ({
+      products: [],
+
+      addProducts: (products: SingleProductType[]) =>
+        set((state: ProductsStoreType) => ({
+          products: [...state.products, ...products],
+        })),
+      deleteProducts: (ID: number | string) =>
+        set((state: ProductsStoreType) => ({
+          products: state.products.filter(
+            (item: SingleProductType) => item.id !== ID
+          ),
+        })),
+    }),
+    {
+      name: "products",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
 
 export default useProductsStore;
