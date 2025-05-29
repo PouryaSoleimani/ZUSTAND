@@ -8,7 +8,7 @@ const Square: React.FC<SquarePropsType> = ({ value, onSquareClick }) => {
 
     return (
         <button
-            className='bg-zinc-900 px-6 py-4 rounded-lg font-black text-xl m-2 border border-zinc-800'
+            className='bg-zinc-900 px-6 py-4 rounded-lg font-black text-xl m-2 border border-zinc-800 hover:bg-zinc-800 hover:cursor-pointer duration-200'
             onClick={onSquareClick}
         >
             {value}

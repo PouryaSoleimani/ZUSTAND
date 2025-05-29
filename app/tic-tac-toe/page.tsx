@@ -1,14 +1,13 @@
 "use client"
-import Square from '@/components/TicTacToe/Square'
+import Board from '@/components/TicTacToe/Board'
 import React from 'react'
 
 const TicTacToePage = () => {
-    const onSquareClick = () => { console.log("SQUARE CLICK") }
 
     return (
-        <div>
-            <h1>TicTacToePage</h1>
-            <Square value={'X'} onSquareClick={onSquareClick} />
+        <div className='w-screen h-screen bg-zinc-950 text-white flex flex-col justify-center items-center'>
+            <h1 className='bg-sky-900 px-6 py-4 rounded-xl font-black text-xl m-5 border border-zinc-500'>Tic-Tac-Toe Page</h1>
+            <Board />
         </div>
     )
 }
