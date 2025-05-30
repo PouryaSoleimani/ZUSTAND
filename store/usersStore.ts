@@ -24,7 +24,7 @@ const useUsersStore = create(
         })),
 
       deleteUser: (ID: number | string) =>
-        set((state : UsersStoreType) => ({
+        set((state: UsersStoreType) => ({
           users: state.users.filter((item: SingleUserType) => item.id !== ID),
         })),
     }),
