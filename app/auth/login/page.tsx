@@ -23,7 +23,7 @@ const LoginPage = () => {
                 <fieldset className="fieldset border-base-300 rounded-box w-xs border p-4 bg-zinc-900">
                     <legend className="fieldset-legend">Login</legend>
 
-                    <label className="label">ID</label>
+                    <label className="label">ID (NUMBER)</label>
                     <input type="number" className="input bg-black" required placeholder="ID" value={ID} onChange={e => setID(e.target.value)} />
 
                     <label className="label">USER__NAME</label>
