@@ -18,13 +18,13 @@ const ProfilePage = () => {
         }
     }, [isUserLogin])
 
-    if (isUserLogin === undefined) {
-        return <div className="text-white text-xl">در حال بررسی وضعیت ورود...</div>;
+    if (user === null) {
+        return <div className="text-white  text-center py-4 text-2xl font-bold ">در حال بررسی وضعیت ...</div>;
     }
 
     return (
-        <div className='w-screen h-screen bg-black text-4xl font-black flex items-center justify-center gap-4 flex-col'>
-            <h2 className='flex gap-4'>     👋  HELLO   <span className='text-blue-800'>{user?.name}</span>    </h2>
+        <div className='w-screen h-screen bg-black text-4xl font-black flex items-center justify-center gap-10 flex-col'>
+            <h2 className='flex gap-4 border py-10 px-16 rounded-3xl border-zinc-700 shadow shadow-blue-500'>     👋  HELLO   <span className='text-blue-800'>{user?.name}</span>    </h2>
             <button className='btn btn-soft btn-error btn-xl'
                 onClick={() => {
                     logout()
