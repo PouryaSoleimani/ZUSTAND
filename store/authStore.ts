@@ -9,7 +9,6 @@ type SingleUserType = {
 type UseAuthStoreType = {
   user: SingleUserType | null;
   isUserLogin: boolean;
-  setUser: (user: SingleUserType) => void;
   login: (name: string) => void;
   logout: () => void;
 };
@@ -20,7 +19,6 @@ const useAuthStore = create<UseAuthStoreType>()(
     (set) => ({
       user: null,
       isUserLogin: false,
-      setUser: (user: SingleUserType) => set({ user }),
       login: (name: string) => set({ user: { id: +crypto.randomUUID(), name: name }, isUserLogin: true }),
       logout: () => set({ user: null, isUserLogin: false }),
     }),
