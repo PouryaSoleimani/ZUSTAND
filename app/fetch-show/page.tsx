@@ -11,6 +11,13 @@ const FetchShowPage = () => {
     const Products = useFetchStore((state) => state.products)
     const deleteSingleProduct = useFetchStore((state) => state.deleteSingleProduct)
     const deleteAllProducts = useFetchStore((state) => state.deleteAllProducts)
+    const fetchSingleProduct = useFetchStore((state) => state.fetchSingleProduct)
+    const [ID, setID] = React.useState<number | string>("")
+
+    function fetchSingleProductHandler(id: number) {
+        if (ID.toString().length < 1) return
+        fetchSingleProduct(id)
+    }
 
     function fetchHandler() {
         FetchData()
@@ -21,6 +28,10 @@ const FetchShowPage = () => {
             <h2>FetchShowPage</h2>
             <button className='btn btn-primary mx-2 rounded-lg text-xl my-6' onClick={fetchHandler}>Fetch Products</button>
             <button className='btn btn-error rounded-lg text-xl my-6 text-white' onClick={deleteAllProducts}>Delete All Products</button>
+            <form>
+                <input type="text" placeholder='Enter Product ID' className='input input-bordered input-primary w-full max-w-xs' value={ID} onChange={(e) => setID(Number(e.target.value))} />
+                <button className='btn btn-primary mx-2 rounded-lg text-xl my-6' onClick={() => fetchSingleProductHandler(ID)}>Fetch Single Product</button>
+            </form>
             <div className='grid grid-cols-8 justify-items-stretch align-content-center gap-5'>
                 {Products.length ? Products.map((item) =>
                     <div key={item.id} className='card border-2  border-zinc-800 bg-zinc-950 rounded'>

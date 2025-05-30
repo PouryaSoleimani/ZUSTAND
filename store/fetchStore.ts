@@ -14,6 +14,7 @@ type FetchStoreType = {
   fetchProducts: () => void;
   deleteSingleProduct: (ID: number) => void;
   deleteAllProducts: () => void;
+  fetchSingleProduct: (ID: number) => void;
 };
 
 // STORE __________________________________________________________________________________________________________________________________________________________
@@ -25,6 +26,12 @@ const useFetchStore = create(
         const res = await fetch("https://fakestoreapi.com/products");
         const data = await res.json();
         set({ products: data });
+      },
+
+      fetchSingleProduct: async (ID: number) => {
+        const res = await fetch(`https://fakestoreapi.com/products/${ID}`);
+        const data = await res.json();
+        set((state) => ({ products: [...state.products, data] }));
       },
 
       deleteSingleProduct: (ID: number) =>
