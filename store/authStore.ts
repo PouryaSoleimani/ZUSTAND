@@ -22,7 +22,7 @@ const useAuthStore = create<UseAuthStoreType>()(
       isUserLogin: false,
       setUser: (user: SingleUserType) => set({ user }),
       login: (name: string) => set({ user: { id: +crypto.randomUUID(), name: name }, isUserLogin: true }),
-      logout: () => set({ user: null }),
+      logout: () => set({ user: null, isUserLogin: false }),
     }),
     {
       name: 'auth-storage',

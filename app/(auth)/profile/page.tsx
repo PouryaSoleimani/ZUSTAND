@@ -1,10 +1,11 @@
 "use client"
 import useAuthStore from '@/store/authStore'
+import { LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const ProfilePage = () => {
-    const { user, isUserLogin } = useAuthStore()
+    const { user, isUserLogin, logout } = useAuthStore()
 
     const router = useRouter()
 
@@ -13,7 +14,14 @@ const ProfilePage = () => {
     }
     else {
         return (
-            <div>HELLO {user?.name}</div>
+            <div className='w-screen h-screen bg-black text-4xl font-black flex items-center justify-center gap-4 flex-col'>
+                <h2 className='flex gap-4'>     👋  HELLO   <span className='text-blue-800'>{user?.name}</span>    </h2>
+                <button className='btn btn-soft btn-error btn-xl'
+                    onClick={() => {
+                        logout()
+                        router.push('/login')
+                    }}><LogOut />Logout</button>
+            </div>
         )
     }
 }
