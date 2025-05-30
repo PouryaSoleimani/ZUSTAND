@@ -8,12 +8,15 @@ const LoginPage = () => {
     const router = useRouter()
     const { login } = useAuthStore()
     const [name, setName] = React.useState<string>('')
+    const accessToken: string = 'accessToken'
+    const refreshToken: string = 'refreshToken'
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        login(name)
+        login(name, accessToken, refreshToken)
         toast.success('Login Successfully')
         router.push('/profile')
+        console.info("TOKENS ===> ",accessToken , refreshToken)
     }
 
     return (

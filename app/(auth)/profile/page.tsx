@@ -8,7 +8,7 @@ import toast from 'react-hot-toast'
 
 const ProfilePage = () => {
 
-    const { user, isUserLogin, logout } = useAuthStore()
+    const { user, isUserLogin, logout, accessToken, refreshToken } = useAuthStore()
     const router = useRouter()
 
     useEffect(() => {
@@ -17,6 +17,8 @@ const ProfilePage = () => {
             return () => clearTimeout(TIMEOUT);
         }
         console.info("user ===> ", user)
+        console.info("____TOKENS  ===> ", accessToken, refreshToken)
+
     }, [isUserLogin])
 
     if (user === null) {
