@@ -4,18 +4,17 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 // TYPES
 type AuthStoreRepeatType = {
   user: { id: number | string; name: string } | null;
-  login: (name: string) => void;
+  login: (id: number, name: string) => void;
   logout: () => void;
 };
-
 
 // STORE
 const useAuthStoreRepeat = create(
   persist<AuthStoreRepeatType>(
     (set) => ({
       user: null,
-      login: (name: string) => {
-        set({ user: { id: (Math.random() * 100).toString().slice(0, 3), name: name } });
+      login: (id: number, name: string) => {
+        set({ user: { id: id, name: name } });
       },
       logout: () => {
         set({ user: null });
