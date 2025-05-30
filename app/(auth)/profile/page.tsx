@@ -9,7 +9,6 @@ const ProfilePage = () => {
     const { user, isUserLogin, logout } = useAuthStore()
     const router = useRouter()
 
-
     useEffect(() => {
         if (isUserLogin === false) {
             const TIMEOUT = setTimeout(() => { router.push('/login') }, 1000);
