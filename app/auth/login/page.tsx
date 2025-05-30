@@ -1,14 +1,22 @@
+"use client"
 import useAuthStoreRepeat from '@/store/authStoreRepeat';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
     const [ID, setID] = useState("")
     const [userName, setUserName] = useState("")
     const { login } = useAuthStoreRepeat();
+    const router = useRouter()
+    
     function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         login(+ID, userName);
+        toast.success("Login Successfully")
+        router.push("/auth/profile")
     }
+
     return (
         <div className='w-screen h-screen bg-black flex items-center justify-center'>
             <form onSubmit={submitHandler}>
