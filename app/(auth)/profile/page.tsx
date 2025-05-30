@@ -30,7 +30,7 @@ const ProfilePage = () => {
             <h2 className='flex gap-4 border py-10 px-16 rounded-3xl border-zinc-700 shadow shadow-blue-500'>     👋  HELLO   <span className='text-blue-800'>{user?.name}</span>    </h2>
             <button className='btn btn-soft btn-error btn-xl'
                 onClick={() => {
-                    logout()
+                    logout(accessToken, refreshToken)
                     toast.success('Logout Successfully')
                     router.push('/login')
                 }}><LogOut />Logout</button>

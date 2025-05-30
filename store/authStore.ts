@@ -12,7 +12,7 @@ type UseAuthStoreType = {
   accessToken: string;
   refreshToken: string;
   login: (name: string, accessToken: string, refreshToken: string) => void;
-  logout: () => void;
+  logout: (accessToken: string, refreshToken: string) => void;
 };
 
 // STORE ____________________________________________________________________________________________________________________________________________________________________________
@@ -23,7 +23,7 @@ const useAuthStore = create<UseAuthStoreType>()(
       isUserLogin: false,
       accessToken: '',
       refreshToken: '',
-      login: (name: string, accessToken: string, refreshToken: string) => set({ user: { id: +crypto.randomUUID(), name: name }, isUserLogin: true, accessToken, refreshToken }),
+      login: (name: string) => set({ user: { id: +crypto.randomUUID(), name: name }, isUserLogin: true, accessToken: 'ACCESS', refreshToken: 'REFRESH' }),
       logout: () => set({ user: null, isUserLogin: false, accessToken: '', refreshToken: '' }),
     }),
     {

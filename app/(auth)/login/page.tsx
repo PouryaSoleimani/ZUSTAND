@@ -6,17 +6,16 @@ import toast from 'react-hot-toast';
 
 const LoginPage = () => {
     const router = useRouter()
-    const { login } = useAuthStore()
+    const { login, accessToken, refreshToken } = useAuthStore()
     const [name, setName] = React.useState<string>('')
-    const accessToken: string = 'accessToken'
-    const refreshToken: string = 'refreshToken'
+
+    console.info("TOKENS ===> ", accessToken, refreshToken)
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         login(name, accessToken, refreshToken)
         toast.success('Login Successfully')
         router.push('/profile')
-        console.info("TOKENS ===> ",accessToken , refreshToken)
     }
 
     return (
