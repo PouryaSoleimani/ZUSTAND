@@ -9,7 +9,6 @@ import toast from 'react-hot-toast'
 const ProfilePage = () => {
 
     const { user, logout, accessToken, refreshToken, loading } = useAuthStoreRepeat();
-
     const router = useRouter()
 
     useEffect(() => {
@@ -21,8 +20,8 @@ const ProfilePage = () => {
 
     function logoutHandler() {
         logout();
-        router.push('/auth/login')
         toast.success("Logout Successfully")
+        router.push('/auth/login')
         console.info("TOKENS AFTER LOGOUT ===>", accessToken, refreshToken)
     }
 
@@ -48,7 +47,7 @@ const ProfilePage = () => {
                         <h2 className='badge badge-neutral text-xs rounded-md mx-auto mt-6'>TOKENS : {accessToken} / {refreshToken}</h2>
                         <p className='tracking-wider text-sm mt-6 text-center'>WELCOME TO PANEL</p>
                         <div className="card-actions justify-end w-full">
-                            <button className="btn btn-error mt-6 btn-sm" onClick={logoutHandler}><LogOut /> LOGOUT </button>
+                            <button className="btn btn-error mt-6 btn-xs" onClick={logoutHandler}><LogOut className='w-4 h-4' /> LOGOUT </button>
                         </div>
                     </div>
                 </div>
