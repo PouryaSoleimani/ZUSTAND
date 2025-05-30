@@ -16,11 +16,11 @@ const UsersPage = () => {
                 {users.length ? (users.map((user: SingleUserType) => (
                     <Suspense key={user.id} fallback={<h2 className='bg-white text-black text-3xl font-black p-3 my-4 rounded-xl'>LOADING</h2>}>
                         <div className='bg-black p-4 flex flex-col items-center gap-2 rounded-xl text-2xl font-black'>
-                            <p className='flex items-center gap-2'><User />{user.id.toString().slice(0, 1)}.{user.name}</p>
+                            <p className='flex items-center gap-2'><User />{user.id.toString().slice(0, 1)} - {user.name}</p>
                             <button className='btn btn-error btn-lg text-white font-black' onClick={() => deleteUser(user.id)}>DELETE USER</button>
                         </div>
                     </Suspense>
-                ))) : (<h2 className='bg-white text-black text-3xl font-black p-3 my-4 rounded-xl'>NO USERS</h2>)}
+                ))) : (<h2 className='bg-zinc-50/20 backdrop-blur-lg text-white text-center mx-auto col-span-8  text-3xl font-black tracking-tighter p-3 my-4 rounded-xl'>NO USERS</h2>)}
             </div>
             <div>
                 <button className='btn btn-soft btn-accent text-white my-4 btn-xl rounded-xl border border-white mx-2' onClick={() => addUser(randomUser)}>ADD USER</button>
