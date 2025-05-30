@@ -4,8 +4,10 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { LogOut } from 'lucide-react'
 import useAuthStore from '@/store/authStore'
+import toast from 'react-hot-toast'
 
 const ProfilePage = () => {
+
     const { user, isUserLogin, logout } = useAuthStore()
     const router = useRouter()
 
@@ -26,6 +28,7 @@ const ProfilePage = () => {
             <button className='btn btn-soft btn-error btn-xl'
                 onClick={() => {
                     logout()
+                    toast.success('Logout Successfully')
                     router.push('/login')
                 }}><LogOut />Logout</button>
         </div>
