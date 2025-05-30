@@ -8,6 +8,7 @@ type AuthStoreRepeatType = {
   logout: () => void;
   accessToken: string;
   refreshToken: string;
+  loading: boolean;
 };
 
 // STORE
@@ -15,13 +16,14 @@ const useAuthStoreRepeat = create(
   persist<AuthStoreRepeatType>(
     (set) => ({
       user: null,
+      loading: false,
       accessToken: '',
       refreshToken: '',
       login: (id: number, name: string) => {
-        set({ user: { id: id, name: name }, accessToken: '123456789', refreshToken: '123456789' });
+        set({ user: { id: id, name: name }, accessToken: '123456789', refreshToken: '123456789', loading: false });
       },
       logout: () => {
-        set({ user: null, accessToken: '', refreshToken: '' });
+        set({ loading: true, user: null, accessToken: '', refreshToken: '' });
         console.info('Logout Successfully');
       },
     }),
