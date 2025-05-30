@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 // TYPES __________________________________________________________________________________________________________________________________________________________
 type SingleProductType = {
   id: number;
-  image : string
+  image: string;
   title: string;
   price: number | string;
 };
