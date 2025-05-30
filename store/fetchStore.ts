@@ -4,6 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 // TYPES __________________________________________________________________________________________________________________________________________________________
 type SingleProductType = {
   id: number;
+  image : string
   title: string;
   price: number | string;
 };
@@ -11,7 +12,8 @@ type SingleProductType = {
 type FetchStoreType = {
   products: SingleProductType[];
   fetchProducts: () => void;
-  deleteProduct: (ID: number) => void;
+  deleteSingleProduct: (ID: number) => void;
+  deleteAllProducts: () => void;
 };
 
 // STORE __________________________________________________________________________________________________________________________________________________________
@@ -25,10 +27,12 @@ const useFetchStore = create(
         set({ products: data });
       },
 
-      deleteProduct: (ID: number) =>
+      deleteSingleProduct: (ID: number) =>
         set((state) => ({
           products: state.products.filter((item) => item.id !== ID),
         })),
+
+      deleteAllProducts: () => set({ products: [] }),
     }),
 
     { name: "__PRODUCS", storage: createJSONStorage(() => localStorage) }
