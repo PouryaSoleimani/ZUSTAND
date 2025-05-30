@@ -24,10 +24,10 @@ const LoginPage = () => {
                     <legend className="fieldset-legend">Login</legend>
 
                     <label className="label">ID (NUMBER)</label>
-                    <input type="number" className="input bg-black" required placeholder="ID" value={ID} onChange={e => setID(e.target.value)} />
+                    <input className="input bg-black" type="number" required placeholder="ID" value={ID} onChange={e => setID(e.target.value)} />
 
                     <label className="label">USER__NAME</label>
-                    <input type="text" className="input bg-black" required placeholder="USER__NAME" value={userName} onChange={e => setUserName(e.target.value)} />
+                    <input className="input bg-black" type="text" required placeholder="USER__NAME" value={userName} onChange={e => setUserName(e.target.value)} />
 
                     <button className="btn btn-soft btn-success mt-4">Login</button>
                 </fieldset>
