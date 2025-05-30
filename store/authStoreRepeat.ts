@@ -19,13 +19,16 @@ const useAuthStoreRepeat = create(
       loading: false,
       accessToken: '',
       refreshToken: '',
+
       login: (id: number, name: string) => {
         set({ user: { id: id, name: name }, accessToken: '123456789', refreshToken: '123456789', loading: false });
       },
+
       logout: () => {
         set({ loading: true, user: null, accessToken: '', refreshToken: '' });
         console.info('Logout Successfully');
       },
+      
     }),
     {
       name: 'auth-storage',
