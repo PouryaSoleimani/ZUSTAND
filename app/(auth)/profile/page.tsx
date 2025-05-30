@@ -1,20 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
-import useAuthStore from '@/store/authStore'
-import { LogOut } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { LogOut } from 'lucide-react'
+import useAuthStore from '@/store/authStore'
 
 const ProfilePage = () => {
     const { user, isUserLogin, logout } = useAuthStore()
-
     const router = useRouter()
 
-    useEffect(() => {
-        if (isUserLogin === false && !user) {
-            router.push('/login')
-        }
-    }, [isUserLogin, user, router])
 
+    useEffect(() => {
+        if (isUserLogin === false) {
+            const TIMEOUT = setTimeout(() => { router.push('/login') }, 1000);
+            return () => clearTimeout(TIMEOUT);
+        }
+    }, [isUserLogin])
+
+    if (isUserLogin === undefined) {
+        return <div className="text-white text-xl">در حال بررسی وضعیت ورود...</div>;
+    }
 
     return (
         <div className='w-screen h-screen bg-black text-4xl font-black flex items-center justify-center gap-4 flex-col'>
