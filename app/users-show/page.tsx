@@ -8,7 +8,9 @@ import { User } from 'lucide-react'
 
 const UsersPage = () => {
     const { users, addUser, deleteUser } = useUsersStore() as UsersStoreType
+
     const randomUser = { id: crypto.randomUUID().toString(), name: Math.random().toString(32).slice(0, 5), age: (Math.random() * 100).toString(4).slice(0, 2) }
+
     return (
         <div className='w-screen h-screen flex flex-col items-center justify-center'>
             <h1 className='bg-white text-black text-3xl font-black p-3 my-4 rounded-xl'>USERS</h1>
