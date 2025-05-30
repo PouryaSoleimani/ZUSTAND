@@ -9,7 +9,9 @@ type SingleUserType = {
 type UseAuthStoreType = {
   user: SingleUserType | null;
   isUserLogin: boolean;
-  login: (name: string) => void;
+  accessToken: string;
+  refreshToken: string;
+  login: (name: string, accessToken: string, refreshToken: string) => void;
   logout: () => void;
 };
 
@@ -19,8 +21,10 @@ const useAuthStore = create<UseAuthStoreType>()(
     (set) => ({
       user: null,
       isUserLogin: false,
-      login: (name: string) => set({ user: { id: +crypto.randomUUID(), name: name }, isUserLogin: true }),
-      logout: () => set({ user: null, isUserLogin: false }),
+      accessToken: '',
+      refreshToken: '',
+      login: (name: string, accessToken: string, refreshToken: string) => set({ user: { id: +crypto.randomUUID(), name: name }, isUserLogin: true, accessToken, refreshToken }),
+      logout: () => set({ user: null, isUserLogin: false, accessToken: '', refreshToken: '' }),
     }),
     {
       name: 'auth-storage',
