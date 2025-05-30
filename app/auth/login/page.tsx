@@ -9,7 +9,7 @@ const LoginPage = () => {
     const [userName, setUserName] = useState("")
     const { login } = useAuthStoreRepeat();
     const router = useRouter()
-    
+
     function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         login(+ID, userName);

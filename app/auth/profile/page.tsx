@@ -8,14 +8,20 @@ import toast from 'react-hot-toast'
 
 const ProfilePage = () => {
 
-    const { user, logout } = useAuthStoreRepeat();
+    const { user, logout, accessToken, refreshToken } = useAuthStoreRepeat();
 
     const router = useRouter()
+
+    useEffect(() => {
+        console.info("TOKENS ===> PROFILE", accessToken, refreshToken)
+    }, [])
+
 
     function logoutHandler() {
         logout();
         router.push('/auth/login')
         toast.success("Logout Successfully")
+        console.info("TOKENS AFTER LOGOUT ===>", accessToken, refreshToken)
     }
 
     if (user === null) {
