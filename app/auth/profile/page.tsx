@@ -14,6 +14,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         console.info("TOKENS ===> PROFILE", accessToken, refreshToken)
+        console.info("USER ==> ", user)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

@@ -28,7 +28,6 @@ const useAuthStoreRepeat = create(
         set({ loading: true, user: null, accessToken: '', refreshToken: '' });
         console.info('Logout Successfully');
       },
-      
     }),
     {
       name: 'auth-storage',
