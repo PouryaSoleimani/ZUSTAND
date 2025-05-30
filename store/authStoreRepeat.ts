@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-// TYPES
+// TYPES __________________________________________________________________________________________________________________________________________________________________
 type AuthStoreRepeatType = {
   user: { id: number | string; name: string } | null;
   login: (id: number, name: string) => void;
@@ -11,7 +11,7 @@ type AuthStoreRepeatType = {
   loading: boolean;
 };
 
-// STORE
+// STORE ______________________________________________________________________________________________________________________________________________________________________________________
 const useAuthStoreRepeat = create(
   persist<AuthStoreRepeatType>(
     (set) => ({
