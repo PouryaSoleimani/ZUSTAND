@@ -16,10 +16,11 @@ const ProfilePage = () => {
             const TIMEOUT = setTimeout(() => { router.push('/login') }, 1000);
             return () => clearTimeout(TIMEOUT);
         }
+        console.info("user ===> ", user)
     }, [isUserLogin])
 
     if (user === null) {
-        return <div className="text-white  text-center py-4 text-2xl font-bold ">در حال بررسی وضعیت ...</div>;
+        return <div className="text-white text-center py-4 text-2xl font-bold">در حال بررسی وضعیت ...</div>;
     }
 
     return (
