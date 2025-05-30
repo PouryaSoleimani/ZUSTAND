@@ -30,7 +30,7 @@ const FetchShowPage = () => {
             <button className='btn btn-error rounded-lg text-xl my-6 text-white' onClick={deleteAllProducts}>Delete All Products</button>
             <form>
                 <input type="text" placeholder='Enter Product ID' className='input input-bordered input-primary w-full max-w-xs' value={ID} onChange={(e) => setID(Number(e.target.value))} />
-                <button className='btn btn-primary mx-2 rounded-lg text-xl my-6' onClick={() => fetchSingleProductHandler(ID)}>Fetch Single Product</button>
+                <button className='btn btn-primary mx-2 rounded-lg text-xl my-6' onClick={() => fetchSingleProductHandler(+ID)}>Fetch Single Product</button>
             </form>
             <div className='grid grid-cols-8 justify-items-stretch align-content-center gap-5'>
                 {Products.length ? Products.map((item) =>
