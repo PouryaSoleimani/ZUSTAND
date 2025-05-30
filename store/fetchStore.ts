@@ -22,6 +22,7 @@ const useFetchStore = create(
   persist<FetchStoreType>(
     (set) => ({
       products: [],
+
       fetchProducts: async () => {
         const res = await fetch("https://fakestoreapi.com/products");
         const data = await res.json();
@@ -40,6 +41,7 @@ const useFetchStore = create(
         })),
 
       deleteAllProducts: () => set({ products: [] }),
+      
     }),
 
     { name: "__PRODUCS", storage: createJSONStorage(() => localStorage) }
