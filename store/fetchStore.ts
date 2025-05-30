@@ -41,7 +41,6 @@ const useFetchStore = create(
         })),
 
       deleteAllProducts: () => set({ products: [] }),
-      
     }),
 
     { name: "__PRODUCS", storage: createJSONStorage(() => localStorage) }

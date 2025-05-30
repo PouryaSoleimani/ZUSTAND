@@ -25,7 +25,7 @@ const UsersPage = () => {
                 ))) : (<h2 className='bg-zinc-50/20 backdrop-blur-lg text-white text-center mx-auto col-span-8  text-3xl font-black tracking-tighter p-3 my-4 rounded-xl'>NO USERS</h2>)}
             </div>
             <div>
-                <button className='btn btn-soft btn-accent text-white my-4 btn-xl rounded-xl border border-white mx-2' onClick={() => addUser(randomUser)}>ADD USER</button>
+                <button className='btn btn-soft btn-accent text-white my-4 btn-xl rounded-xl border border-white mx-2' onClick={() => addUser(randomUser)}>ADD FAKE USER</button>
                 <button className='btn btn-soft btn-accent text-white my-4 btn-xl rounded-xl border border-white mx-2' onClick={() => console.info(users)}>LOG ALL USERS</button>
             </div>
         </div >
