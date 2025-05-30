@@ -25,7 +25,7 @@ const FetchShowPage = () => {
                 {Products.length ? Products.map((item) =>
                     <div key={item.id} className='card border-2  border-zinc-800 bg-zinc-950 rounded'>
                         <div className='card-body p-2'>
-                            <Image src={item.image} alt={item.title} width={100} height={100} className='w-full h-32 object-contain' />
+                            <Image src={item.image.toString()} alt={item.title} width={100} height={100} className='w-full h-32 object-fill rounded-xl' />
                             {item.title.slice(0, 15)}
                             <div className='flex items-center justify-around mt-5 gap-2 px-1'>
                                 <div className="badge py-5 text-xl font-bold tracking-tighter w-1/2 rounded-xl badge-soft">${item.price}</div>
