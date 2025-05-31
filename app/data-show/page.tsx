@@ -1,4 +1,5 @@
 "use client"
+import useArrayStore from '@/store/arrayStore'
 import { useDataStore } from '@/store/dataStore'
 import React from 'react'
 import useSWR from 'swr'
@@ -11,6 +12,8 @@ const DataShowPage = () => {
     const DELETE_DATAS = useDataStore((state) => state.deleteDatas)
     const fetcher = (url: string) => fetch(url).then(res => res.json())
     const { data } = useSWR('https://fakestoreapi.com/products', fetcher)
+    const { array } = useArrayStore()
+    console.info("ARRAY ===>", array)
 
     return (
         <div>
