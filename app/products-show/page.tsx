@@ -9,8 +9,8 @@ import useNameStore from '@/store/nameStore'
 
 const ProductsShowPage = () => {
     const { name } = useNameStore()
-    console.info("NAME IN PRODUCTS SHOW PAGE", name)
-    
+    console.info("NAME IN PRODUCTS SHOW PAGE ===>", name)
+
     function generateRandomString(length: number) {
         return Math.random().toString(36).substring(2, length + 2);
     }
