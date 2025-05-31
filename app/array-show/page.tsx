@@ -12,7 +12,7 @@ const ArrayShowPage = () => {
         <div>ArrayShowPage
             <div className='flex flex-wrap gap-5 m-10'>
                 {array.length ? array.map((item, index) => (
-                    <div key={index} className='badge badge-info text-white font-bold text-xl'>{item}</div>
+                    <div key={index} className='badge badge-neutral p-5 border-2 border-warning text-white font-bold text-xl'>{item}</div>
                 )) : (
                     <div>No Data</div>
                 )}
