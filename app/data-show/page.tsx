@@ -13,7 +13,7 @@ const DataShowPage = () => {
     const fetcher = (url: string) => fetch(url).then(res => res.json())
     const { data } = useSWR('https://fakestoreapi.com/products', fetcher)
     const { array } = useArrayStore()
-    console.info("ARRAY ===>", array)
+    console.info("ARRAY // DATA-SHOW ===>", array)
 
     return (
         <div>
