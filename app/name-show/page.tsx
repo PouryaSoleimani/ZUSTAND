@@ -9,10 +9,10 @@ const NameShowPage = () => {
     return (
         <div>NameShowPage
             <h3 className='text-center mx-auto bg-red-900 text-white p-4 border w-96 text-lg font-bold rounded-3xl'>{name.length ? name : "NOTHING HERE"}</h3>
-            <div>
-                <button className='btn mx-3 btn-neutral' onClick={() => setName("POURYA")}>SET NAME</button>
-                <button className='btn mx-3 btn-error' onClick={removeName}>DELETE NAME</button>
-                <Link className='link-neutral' href={'/products-show'}>PRODUCTS</Link>
+            <div className='bg-black p-4 flex justify-start mt-4'>
+                <button className='btn mx-3 btn-neutral border' onClick={() => setName("POURYA")}>SET NAME</button>
+                <button className='btn mx-3 btn-error border' onClick={removeName}>DELETE NAME</button>
+                <Link className='btn btn-info mx-3 border' href={'/products-show'}>PRODUCTS</Link>
             </div>
         </div>
     )
