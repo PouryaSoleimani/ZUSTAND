@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 // TYPES __________________________________________________________________________________________________________________________________________________________________
 type ArrayStoreType = {
   array: number[];
-  addToArray: (value: number) => void;
+  addToArray: (array: number[]) => void;
   removeFromArray: (index: number) => void;
 };
 
@@ -12,11 +12,11 @@ const useArrayStore = create<ArrayStoreType>()(
   persist(
     (set) => ({
       array: [],
-      addToArray: (value: number) => {
-        set((state) => ({ array: [...state.array, value] }));
+      addToArray: (array: number[]) => {
+        set(() => ({ array: array }));
       },
-      removeFromArray: (index: number) => {
-        set((state) => ({ array: state.array.filter((_, i) => i !== index) }));
+      removeFromArray: () => {
+        set(() => ({ array: [] }));
       },
     }),
     {
