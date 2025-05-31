@@ -1,5 +1,6 @@
 'use client'
 import useNameStore from '@/store/nameStore'
+import Link from 'next/link'
 import React from 'react'
 
 const NameShowPage = () => {
@@ -11,6 +12,7 @@ const NameShowPage = () => {
             <div>
                 <button className='btn mx-3 btn-neutral' onClick={() => setName("POURYA")}>SET NAME</button>
                 <button className='btn mx-3 btn-error' onClick={removeName}>DELETE NAME</button>
+                <Link className='link-neutral' href={'/products-show'}>PRODUCTS</Link>
             </div>
         </div>
     )

@@ -4,10 +4,13 @@ import React, { Suspense } from 'react'
 import { SingleProductType, ProductsStoreType } from '@/store/productsStore'
 import { toast } from 'react-hot-toast'
 import { Trash } from 'lucide-react'
+import useNameStore from '@/store/nameStore'
 
 
 const ProductsShowPage = () => {
-
+    const { name } = useNameStore()
+    console.info("NAME IN PRODUCTS SHOW PAGE", name)
+    
     function generateRandomString(length: number) {
         return Math.random().toString(36).substring(2, length + 2);
     }
