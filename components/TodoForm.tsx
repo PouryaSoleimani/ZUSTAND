@@ -6,13 +6,15 @@ import { FakeTodos } from '@/data/db'
 import { FakeTodos2 } from '@/data/db'
 import { Trash } from 'lucide-react'
 import useSWR from 'swr'
+import useAgeStore from '@/store/ageStore'
 
 
 const TodoForm = () => {
     const [text, setText] = useState('')
     const { addTodo, addSingleTodo } = useTodoStore() as TodoStoreType
     const fetcher = (url: string) => fetch(url).then(res => res.json())
-
+    const { age } = useAgeStore()
+    console.log("AGE / TODO FORM", age)
     const { data } = useSWR('https://fakestoreapi.com/products', fetcher)
 
 
