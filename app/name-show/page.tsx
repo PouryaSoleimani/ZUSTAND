@@ -8,7 +8,7 @@ const NameShowPage = () => {
     const { name, setName, removeName } = useNameStore()
     const { age } = useAgeStore()
     console.log("AGE / NAME SHOW PAGE", age)
-    
+
     return (
         <div>NameShowPage
             <h3 className='text-center mx-auto bg-red-900 text-white p-4 border w-96 text-lg font-bold rounded-3xl'>{name.length ? name : "NOTHING HERE"}</h3>
