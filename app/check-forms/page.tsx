@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import useCheckFormStore from '@/store/useCheckFormStore'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const CheckFormsPage = () => {
@@ -9,9 +10,10 @@ const CheckFormsPage = () => {
     const [check3, setCheck3] = useState(false)
     const [isDisabled, setIsDisabled] = useState(true)
     const [isShowError, setisShowError] = useState(false)
-
+    const router = useRouter()
     //* STORE
-    const { } = useCheckFormStore()
+    const { addCheckedForms } = useCheckFormStore() as any
+
     useEffect(() => {
         if (check1 == true || check2 == true || check3 == true) { setIsDisabled(false); setisShowError(false) }
         else { setIsDisabled(true); setisShowError(true) }
@@ -19,11 +21,9 @@ const CheckFormsPage = () => {
 
     function submitHandler(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
+        const newCheckFormObj = { 1: check1, 2: check2, 3: check3 }
         console.info(check1, "//", check2, "//", check3)
-        setCheck1(false); setCheck2(false); setCheck3(false)
-        alert("SUBMITTED")
-        location.reload()
-        setisShowError(false)
+        addCheckedForms(newCheckFormObj)
     }
 
     return (
@@ -43,6 +43,12 @@ const CheckFormsPage = () => {
                 </div>
                 <button type='submit' className={`w-fit bg-blue-600 px-7 py-1.5 rounded-md text-black font-bold ${isDisabled ? "opacity-25" : ""}`} disabled={isDisabled}>SEND</button>
                 {isShowError && <p className='bg-red-900 text-red-100 text-xs font-bold p-2 rounded-md w-fit'>PLEASE SELECT AN OPTION TO CONTINUE</p>}
+                <button
+                    className={`bg-neutral-700 w-fit p-3 mx-auto rounded-md`}
+                    onClick={() => { router.push('/check-forms/check-form-status')  }}
+                    disabled={isDisabled}
+                >
+                    SHOW STATUS</button>
             </form>
         </div>
     )

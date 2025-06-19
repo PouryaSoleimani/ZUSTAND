@@ -1,14 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+export type checkFormType = {
+  1: boolean;
+  2: boolean;
+  3: boolean;
+};
 
 const useCheckFormStore = create()(
   persist(
     (set) => ({
-      checkedForms: [],
-      addCheckedForms: (newCheckForm: any, state: any) =>
+      checkedForms: {},
+      addCheckedForms: (newCheckForm: { 1: boolean; 2: boolean; 3: boolean }) =>
         set({
-          checkedForms: [...state.checkedForms, ...newCheckForm],
+          checkedForms: { ...newCheckForm },
         }),
     }),
     {
@@ -18,5 +23,3 @@ const useCheckFormStore = create()(
   )
 );
 export default useCheckFormStore;
-
-
