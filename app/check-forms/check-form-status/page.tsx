@@ -6,8 +6,8 @@ import React from 'react'
 const CheckFormStatusPage = () => {
     const { checkedForms } = useCheckFormStore() as any
     return (
-        <div>
-            STATUS : {JSON.stringify(checkedForms)}
+        <div className='font-bold text-3xl p-10'>
+            STATUS : <span className='text-emerald-700'>{checkedForms.a}{checkedForms.b}{checkedForms.c}</span>
         </div>
     )
 }

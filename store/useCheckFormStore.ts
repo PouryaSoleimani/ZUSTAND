@@ -2,16 +2,16 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 export type checkFormType = {
-  1: boolean;
-  2: boolean;
-  3: boolean;
+  a: boolean;
+  b: boolean;
+  c: boolean;
 };
 
 const useCheckFormStore = create()(
   persist(
     (set) => ({
       checkedForms: {},
-      addCheckedForms: (newCheckForm: { 1: boolean; 2: boolean; 3: boolean }) =>
+      addCheckedForms: (newCheckForm: { a: boolean; b: boolean; c: boolean }) =>
         set({
           checkedForms: { ...newCheckForm },
         }),
