@@ -1,19 +1,19 @@
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { create } from 'zustand'
+import { createJSONStorage, persist } from 'zustand/middleware'
 
 export type SingleUserType = {
-  id: number | string;
-  name: string;
-  age: number | string;
-};
+  id: number | string
+  name: string
+  age: number | string
+}
 
 export type UsersStoreType = {
-  users: SingleUserType[] | [];
-  addUser: (user: SingleUserType) => void;
-  deleteUser: (ID: number | string) => void;
-  fetchUsers: () => void;
-  resetUsers: () => void;
-};
+  users: SingleUserType[] | []
+  addUser: (user: SingleUserType) => void
+  deleteUser: (ID: number | string) => void
+  fetchUsers: () => void
+  resetUsers: () => void
+}
 
 const useUsersStore = create(
   persist<UsersStoreType>(
@@ -23,10 +23,10 @@ const useUsersStore = create(
       fetchUsers: async () => {
         // ASYNC AND API CALL
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        const data = await response.json();
-        set({ users: data });
+          'https://jsonplaceholder.typicode.com/users'
+        )
+        const data = await response.json()
+        set({ users: data })
       },
 
       addUser: (user: SingleUserType) =>
@@ -42,8 +42,8 @@ const useUsersStore = create(
       resetUsers: () => set({ users: [] }),
     }),
 
-    { name: "__USERS", storage: createJSONStorage(() => localStorage) }
+    { name: '__USERS', storage: createJSONStorage(() => localStorage) }
   )
-);
+)
 
-export default useUsersStore;
+export default useUsersStore
