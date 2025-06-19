@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import useFormStorage from '@/store/useFormStorage'
 import { useRouter } from 'next/navigation'
@@ -8,7 +7,7 @@ const FormPage = () => {
     const [name, setName] = useState("")
     const [lastname, setLastname] = useState("")
     const [age, setAge] = useState("")
-    const { formDatas, updateFormDatas } = useFormStorage()
+    const { updateFormDatas } = useFormStorage()
     const router = useRouter()
 
     function submitHandler(e: React.FormEvent<HTMLFormElement>) {
