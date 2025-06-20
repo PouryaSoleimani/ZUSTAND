@@ -10,9 +10,10 @@ const CheckFormsPage = () => {
     const [check3, setCheck3] = useState("")
     const [isDisabled, setIsDisabled] = useState(true)
     const [isShowError, setisShowError] = useState(false)
+    const [color, setColor] = useState('')
     const router = useRouter()
     //* STORE
-    const { addCheckedForms } = useCheckFormStore() as any
+    const { addCheckedForms, SetColor, Color } = useCheckFormStore() as any
 
     useEffect(() => {
         if (check1 || check2 || check3) { setIsDisabled(false); setisShowError(false) }
@@ -24,6 +25,13 @@ const CheckFormsPage = () => {
         const newCheckFormObj = { a: check1, b: check2, c: check3 }
         console.info(check1, "//", check2, "//", check3)
         addCheckedForms(newCheckFormObj)
+    }
+
+    function submitHandler2(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+        SetColor(color)
+        console.info(color , Color)
+
     }
 
     return (
@@ -50,8 +58,25 @@ const CheckFormsPage = () => {
                 >
                     SHOW STATUS</button>
             </form>
+            <form className='flex flex-col gap-5 rounded bg-neutral-800 p-5' onSubmit={(event) => { submitHandler2(event) }}>
+                {itemsArray.map((item) => (
+                    <div className='flex' key={item.id}>
+                        <label htmlFor="INPUT">{item.title}</label>
+                        <input id={`ITEM_${item.id}`} name='INPUT' type='checkbox' onChange={()=>setColor(item.title)} className={`bg-${item.value}-600 mx-3 rounded-xl flex items-center justify-center`} />
+                    </div>
+                ))}
+                <button type='submit' className='bg-rose-500 w-fit px-7 py-3 text-black font-bold rounded-xl'>SUBMIT</button>
+                <p>COLOR IS : {color}</p>
+                <p>ZUSTAND COLOR IS : {Color}</p>
+            </form>
         </div>
     )
 }
 
 export default CheckFormsPage
+
+const itemsArray = [
+    { id: 1, title: "RED", value: "red" },
+    { id: 2, title: "BLUE", value: "blue" },
+    { id: 3, title: "GREEN", value: "green" },
+]

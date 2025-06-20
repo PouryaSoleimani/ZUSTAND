@@ -15,6 +15,9 @@ const useCheckFormStore = create()(
         set({
           checkedForms: { ...newCheckForm },
         }),
+
+      Color: "",
+      SetColor: (newColor: string) => set({ Color: newColor }),
     }),
     {
       name: "CHECK__FORM__STORAGE",
