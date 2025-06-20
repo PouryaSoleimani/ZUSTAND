@@ -5,7 +5,7 @@ const Step2Page = () => {
     return (
         <div className='fieldset flex flex-col text-3xl font-black items-center justify-center h-screen'>
             STEP 2
-            <Form2/>
+            <Form2 />
         </div>
     )
 }
