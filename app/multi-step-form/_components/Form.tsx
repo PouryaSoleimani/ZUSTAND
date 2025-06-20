@@ -10,6 +10,7 @@ const Form1 = () => {
     const [age, setAge] = useState('')
     const { setFirstStep } = useMultiStepFormStore() as any
     const router = useRouter()
+    
     function submitHandler(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
         console.info("FORM DATA ===>", firstName, lastName, age)
