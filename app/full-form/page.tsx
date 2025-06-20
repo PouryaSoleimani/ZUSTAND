@@ -4,7 +4,7 @@ import useMultipleFormStore from '@/store/useMultipleFormStore'
 import React, { useState } from 'react'
 
 const FullFormPage = () => {
-    const { color, gram, material, setColor, setGram, setMaterial, additionalDesc } = useMultipleFormStore() as any
+    const { color, gram, material, setColor, setGram, setMaterial, additionalDesc, isChecked } = useMultipleFormStore() as any
 
     const [Color, SetColor] = useState('')
     const [Gram, SetGram] = useState('')
@@ -33,6 +33,9 @@ const FullFormPage = () => {
                 <h3>GRAM : <span className='font-bold text-emerald-500'>{gram}</span></h3>
                 <h3>MATERIAL : <span className='font-bold text-cyan-500'>{material}</span> </h3>
                 <h3>DESC : <span className='font-bold text-sky-500'>{additionalDesc}</span></h3>
+                <div className={`size-10 rounded-full flex items-center justify-center text-xs ${isChecked ? "bg-green-600" : "bg-red-600/50"}`}>
+                    <span>{isChecked ? "ON" : "OFF"}</span>
+                </div>
             </div>
         </div>
     )
