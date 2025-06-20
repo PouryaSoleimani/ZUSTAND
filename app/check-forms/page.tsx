@@ -30,7 +30,7 @@ const CheckFormsPage = () => {
     function submitHandler2(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
         SetColor(color)
-        console.info(color , Color)
+        console.info(color, Color)
 
     }
 
@@ -62,7 +62,7 @@ const CheckFormsPage = () => {
                 {itemsArray.map((item) => (
                     <div className='flex' key={item.id}>
                         <label htmlFor="INPUT">{item.title}</label>
-                        <input id={`ITEM_${item.id}`} name='INPUT' type='checkbox' onChange={()=>setColor(item.title)} className={`bg-${item.value}-600 mx-3 rounded-xl flex items-center justify-center`} />
+                        <input id={`ITEM_${item.id}`} name='INPUT' type='radio' onChange={() => setColor(item.title)} className={`bg-${item.value}-600 mx-3 rounded-xl flex items-center justify-center`} />
                     </div>
                 ))}
                 <button type='submit' className='bg-rose-500 w-fit px-7 py-3 text-black font-bold rounded-xl'>SUBMIT</button>
