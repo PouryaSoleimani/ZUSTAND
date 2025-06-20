@@ -4,7 +4,7 @@ import useMultipleFormStore from '@/store/useMultipleFormStore'
 import React, { useState } from 'react'
 
 const FullFormPage = () => {
-    const { color, gram, material, setColor, setGram, setMaterial } = useMultipleFormStore() as any
+    const { color, gram, material, setColor, setGram, setMaterial, additionalDesc } = useMultipleFormStore() as any
 
     const [Color, SetColor] = useState('')
     const [Gram, SetGram] = useState('')
@@ -29,9 +29,10 @@ const FullFormPage = () => {
                 <button className='btn btn-secondary btn-block'>SUBMIT</button>
             </form>
             <div className='bg-neutral-900 px-10 py-3 space-y-5 my-5 text-lg rounded-xl border'>
-            <h3>COLOR : <span className='font-bold text-pink-500'>{color}</span></h3>
-            <h3>GRAM : <span className='font-bold text-emerald-500'>{gram}</span></h3>
-            <h3>MATERIAL : <span className='font-bold text-cyan-500'>{material}</span> </h3>
+                <h3>COLOR : <span className='font-bold text-pink-500'>{color}</span></h3>
+                <h3>GRAM : <span className='font-bold text-emerald-500'>{gram}</span></h3>
+                <h3>MATERIAL : <span className='font-bold text-cyan-500'>{material}</span> </h3>
+                <h3>DESC : <span className='font-bold text-sky-500'>{additionalDesc}</span></h3>
             </div>
         </div>
     )

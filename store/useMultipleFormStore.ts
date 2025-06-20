@@ -10,6 +10,8 @@ const useMultipleFormStore = create()(
       setGram: (newGram: string) => set({ gram: newGram }),
       material: "",
       setMaterial: (newMaterial: string) => set({ material: newMaterial }),
+      additionalDesc: "",
+      setAdditionalDescription: (desc: string) => set({ additionalDesc: desc }),
     }),
     {
       name: "MULTI__FORM",
