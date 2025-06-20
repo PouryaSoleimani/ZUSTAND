@@ -17,7 +17,7 @@ const Form2 = () => {
         console.info("FORM DATA ===>", job, wish, isHappy)
         const secondStepObject = { job, wish, isHappy }
         setFirstStep(secondStepObject)
-        router.push('/multi-step-form/')
+        router.push('/multi-step-form/checkout')
     }
     return (
         <form className='fieldset border-2 border-zinc-900 p-5 rounded-xl outline-0' onSubmit={submitHandler}>
