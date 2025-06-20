@@ -21,8 +21,8 @@ const Form2 = () => {
     }
     return (
         <form className='fieldset border-2 border-zinc-900 p-5 rounded-xl outline-0' onSubmit={submitHandler}>
-            <input type="text" className='input rounded-md' placeholder='First Name ...' value={job} onChange={event => setJob(event.target.value)} />
-            <input type="text" className='input rounded-md' placeholder='Last Name ...' value={wish} onChange={event => setWish(event.target.value)} />
+            <input type="text" className='input rounded-md' placeholder='JOB' value={job} onChange={event => setJob(event.target.value)} />
+            <input type="text" className='input rounded-md' placeholder='WISH' value={wish} onChange={event => setWish(event.target.value)} />
             <div className='flex gap-3 border border-zinc-900 p-3 rounded items-center justify-between'>
                 <label htmlFor="HAPPY__CHECK">ARE YOU HAPPY ?</label>
                 <input name="HAPPY__CHECk" type="checkbox" className='checkbox rounded-md' placeholder='Age ...' value={isHappy as any} onClick={() => setIsHappy(!isHappy)} />
