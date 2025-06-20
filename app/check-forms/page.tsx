@@ -12,6 +12,7 @@ const CheckFormsPage = () => {
     const [isShowError, setisShowError] = useState(false)
     const [color, setColor] = useState('')
     const router = useRouter()
+
     //* STORE
     const { addCheckedForms, SetColor, Color } = useCheckFormStore() as any
 

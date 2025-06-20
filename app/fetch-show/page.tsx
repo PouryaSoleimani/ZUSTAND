@@ -4,8 +4,6 @@ import useFetchStore from '@/store/fetchStore'
 import { Trash } from 'lucide-react'
 import Image from 'next/image'
 
-
-
 const FetchShowPage = () => {
     const FetchData = useFetchStore((state) => state.fetchProducts)
     const Products = useFetchStore((state) => state.products)
