@@ -33,8 +33,8 @@ const FullFormPage = () => {
                 <h3>GRAM : <span className='font-bold text-emerald-500'>{gram}</span></h3>
                 <h3>MATERIAL : <span className='font-bold text-cyan-500'>{material}</span> </h3>
                 <h3>DESC : <span className='font-bold text-sky-500'>{additionalDesc}</span></h3>
-                <div className={`size-10 rounded-full flex items-center justify-center text-xs ${isChecked ? "bg-green-600" : "bg-red-600/50"}`}>
-                    <span>{isChecked ? "ON" : "OFF"}</span>
+                <div className={`w-32 h-10 rounded-lg text-xl font-semibold  mx-auto  flex items-center justify-center ${isChecked ? "bg-green-600" : "bg-red-600/50"}`}>
+                    <span>{isChecked == true ? "TRUE" : "FALSE"}</span>
                 </div>
             </div>
         </div>

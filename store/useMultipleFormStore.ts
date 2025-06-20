@@ -13,7 +13,7 @@ const useMultipleFormStore = create()(
       additionalDesc: "",
       setAdditionalDescription: (desc: string) => set({ additionalDesc: desc }),
       isChecked: false,
-      setIsChecked: () => set({ isChecked: true }),
+      setIsChecked: (value: boolean) => set({ isChecked: value }),
     }),
     {
       name: "MULTI__FORM",
