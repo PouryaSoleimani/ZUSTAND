@@ -17,7 +17,6 @@ const FullFormPage = () => {
         setGram(Gram.toUpperCase())
         setMaterial(Material.toUpperCase())
         SetColor(''); SetGram(''); SetMaterial('')
-        location.reload()
     }
     return (
         <div className='w-screen h-screen flex flex-col items-center justify-center'>
