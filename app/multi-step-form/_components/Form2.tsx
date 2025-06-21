@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 const Form2 = () => {
+
     const [job, setJob] = useState('')
     const [wish, setWish] = useState('')
     const [isHappy, setIsHappy] = useState(false)
@@ -19,6 +20,7 @@ const Form2 = () => {
         setFirstStep(secondStepObject)
         router.push('/multi-step-form/checkout')
     }
+
     return (
         <form className='fieldset border-2 border-zinc-900 p-5 rounded-xl outline-0' onSubmit={submitHandler}>
             <input type="text" className='input rounded-md' placeholder='JOB' value={job} onChange={event => setJob(event.target.value)} />
